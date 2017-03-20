@@ -1,0 +1,12 @@
+
+<%= form_for something do |f| %>
+  if @pic.errors.any?
+    <h2><%= pluralize(@pic.errors.count, "error") %></h2>
+    <ul>
+      @pic.errors.full_messages.each do |msg|
+      <li><%= msg %></li>  
+    </ul>
+  <%= f.input :username, class: "form-control", placeholder: "email" %>
+  <%= f.input :password, class: "form-control", placeholder: "email" %>
+  <%= f.button :submit, class: "btn btn-default" %>
+<% end %>
