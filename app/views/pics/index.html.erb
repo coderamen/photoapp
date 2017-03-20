@@ -1,2 +1,3 @@
-<%= @pics.each do |pic| %>
-<%= link_to pic.title, pic.des
+<%= @pics do |pic| %>
+<%= link_to pic.title %>
+<% end %>
