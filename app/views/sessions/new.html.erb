@@ -1,0 +1,14 @@
+<h1 align="center">Log in</h1>
+
+<div class="container">
+  <div class="col-sm-4 col-sm-offset-4">
+    <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+    <div class="well" style="width: 320px; margin-top: 30px;">
+      <h4><%= f.label :email %></h4>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+      <%= f.submit "Log in", class: 'btn btn-primary', id: 'signup_btn' %>
+    </div>
+</div>
+<% end %>

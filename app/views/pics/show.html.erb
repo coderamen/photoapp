@@ -5,9 +5,11 @@
       <div class="well">
         <h1><%= @pic.title %></h1>
         <p><%= @pic.description %></p>
-        <p><%= @pic.user.email %></p>
+        <p>Pic by<%= @pic.user.email %></p>
 
         <%= link_to "Back", pics_path , class: "btn btn-default" %>
+        <%= link_to "Edit", edit_pic_path , class: "btn btn-default" %>
+        <%= link_to "Delete", pic_path, class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     </div>
   </div>
