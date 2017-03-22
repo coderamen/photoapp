@@ -1,16 +1,19 @@
-<% obj.each do |pic| %>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <div class="well">
-        <h2>Title:<%= link_to pic.title, pic %></h2>
-        <h4>Description:<%= pic.description %></h4>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <% obj.each do |pic| %>
+      <div class="panel-heading">
+        <%= image_tag pic.photo %>
+      </div>
+      <div class="panel-body">
+        <h2><%= link_to pic.title, pic %></h2>
         <div class="pic-meta-details">
           <small>Created by:<%= pic.user.username if pic.user %>,
-            <%= time_ago_in_words(pic.created_at) %> ago,
-            last updated: <%= time_ago_in_words(pic.updated_at) %> ago</small>
+            <%= time_ago_in_words(pic.created_at) %>
+            ago, last updated:
+            <%= time_ago_in_words(pic.updated_at) %>
+            ago</small>
+          </div>
+          <% end %>
         </div>
-        <%= link_to "Gram it", new_pic_path %>
       </div>
-    </div>
   </div>
-<% end %>

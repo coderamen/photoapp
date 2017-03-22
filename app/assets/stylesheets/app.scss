@@ -10,3 +10,16 @@
   border-top: 1px solid #eaeaea;
   margin-top: 15px;
 }
+
+
+.panel-body {
+   h1 {
+    text-align: center;
+    color: #5bc0de;
+    font-weight: bold;
+    text-transform: capitalize;
+   }
+   p {
+    text-align: center;
+   }
+}

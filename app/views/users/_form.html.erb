@@ -4,7 +4,10 @@
   <div class="col-sm-4 col-sm-offset-4">
     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
     <div class="well" style="width: 320px; margin-top: 30px;">
-    <h4><%= f.label :username %></h4>
+    <%= f.label :photo %>
+    <br>
+    <%= f.file_field :photo, class: "form-control" %>
+    <%= f.label :username %>
     <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
     <%= f.label :email %>
     <%= f.email_field :email, rows: 10, class: "form-control", placeholder: "Enter email" %>
