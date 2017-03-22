@@ -1,19 +1,25 @@
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <% obj.each do |pic| %>
-      <div class="panel-heading">
-        <%= image_tag pic.photo %>
-      </div>
-      <div class="panel-body">
-        <h2><%= link_to pic.title, pic %></h2>
-        <div class="pic-meta-details">
-          <small>Created by:<%= pic.user.username if pic.user %>,
-            <%= time_ago_in_words(pic.created_at) %>
-            ago, last updated:
-            <%= time_ago_in_words(pic.updated_at) %>
-            ago</small>
-          </div>
-          <% end %>
+
+<div class="container">
+  <div class="row" style="margin-top: 40px;">
+    <% obj.each do |pic| %>
+    <div class="col-md-4">
+      <div class="panel panel-default item">
+        <div class="panel-heading">
+          <%= image_tag pic.photo, id: "img-size"%>
         </div>
-      </div>
+        <div class="panel-body">
+          <h2><%= link_to pic.title, pic %></h2>
+          </div>
+          <div class="panel-footer">
+            <div class="pic-meta-details">
+              <small>Created by:<%= pic.user.username if pic.user %>,
+                <%= time_ago_in_words(pic.created_at) %>
+                ago, last updated:
+                <%= time_ago_in_words(pic.updated_at) %>
+                ago</small>
+              </div>
+          </div>
+    </div>
   </div>
+  <% end %>
+</div>

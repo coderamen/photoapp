@@ -1,5 +1,5 @@
 class PicsController < ApplicationController
-  before_action :find_pic, only: [:show, :edit, :update, :destroy]
+  before_action :find_pic, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
@@ -40,6 +40,11 @@ class PicsController < ApplicationController
     @pic.destroy
     flash[:danger] = "Pics was successfully deleted"
     redirect_to pics_path
+  end
+
+  def upvote
+    @pic.upvote_by current_user
+    redirect_to :back
   end
 
   private

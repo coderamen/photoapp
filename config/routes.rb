@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'pics#index'
 
-  resources :pics
+  resources :pics do
+    member do
+      put "like", to: "pics#upvote"
+    end
+  end
 
   get 'signup', to: 'users#new'
   post 'users', to: 'users#create'
