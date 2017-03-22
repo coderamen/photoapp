@@ -1,2 +1,10 @@
-
-<%= render 'pic', obj: @pics %>
+<div class="container" style="margin-top: 40px;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'search' %>
+    </div>
+  </div>
+</div>
+<div id="pics_ajax">
+  <%= render 'pic', obj: @pics %>
+</div>

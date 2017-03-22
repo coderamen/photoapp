@@ -3,9 +3,9 @@
   <div class="row" style="margin-top: 40px;">
     <% obj.each do |pic| %>
     <div class="col-md-4">
-      <div class="panel panel-default item">
-        <div class="panel-heading">
-          <%= image_tag pic.photo, id: "img-size"%>
+      <div class="panel panel-default" id="item">
+        <div class="panel-heading card">
+          <%= image_tag pic.photo %>
         </div>
         <div class="panel-body">
           <h2><%= link_to pic.title, pic %></h2>

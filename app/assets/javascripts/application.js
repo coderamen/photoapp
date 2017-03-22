@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('form').submit(function(e) {
+  var getData = $(this).serialize(); //grabs data from form input
+  var formURL = $(this).attr('action');
+  $.ajax({
+    url: formURL,
+    type: 'GET',
+    data: getData,
+    success: function(data, textStatus, jqXHR){
+      $('SearchForm').append(data); //this is the JS that gets triggered in response to a successful return. Data is what was returned.
+    },
+    error: function(jqXHR, textStatus, errorThrown){}
+  });
+  e.preventDefault();
+  });
+});
+
+$(document).submit();
