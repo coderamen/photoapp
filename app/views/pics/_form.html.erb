@@ -11,5 +11,17 @@
   <br>
   <%= f.file_field :photo, class: "form-control" %>
   <br>
+  <%= f.label :address %>
+  <br>
+  <%= f.text_field :address1, class: "form-control" %>
+  <br>
+  <%= f.label :city %>
+  <br>
+  <%= f.text_field :city, class: "form-control" %>
+  <br>
+  <%= f.label :state %>
+  <br>
+  <%= f.text_field :state, class: "form-control" %>
+  <br>
   <%= f.submit "Post Pic", class: "btn btn-inverse", style: "background: #000; color:#ccc;" %>
   <% end %>

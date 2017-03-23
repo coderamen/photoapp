@@ -7,9 +7,15 @@ class Pic < ApplicationRecord
   validates :description, presence: true
   validates :user_id, presence: true
   mount_uploader :photo ,PhotoUploader
+  geocoded_by :full_address
+  after_validation :geocode
+
+  def full_address
+    [address1, city, state, zipcode].compact.join(',')
+  end
 
   pg_search_scope :search_full_text,
-  
+
    :against => {
     :title => 'A',
     :description => 'B'

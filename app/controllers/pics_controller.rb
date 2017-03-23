@@ -8,10 +8,11 @@ class PicsController < ApplicationController
       @pics = Pic.search_full_text(params[:query]).order('created_at DESC')
     else
       @pics = Pic.all.order('created_at ASC')
-end
+    end
   end
 
   def show
+    place = Place.where(id: params[:id])
   end
 
   def new
@@ -55,7 +56,7 @@ end
   private
 
   def pic_params
-    params.require(:pic).permit(:title, :description, :photo)
+    params.require(:pic).permit(:title, :description, :photo, :latitude, :longitude, :address1, :city, :state, :zipcode)
   end
 
   def find_pic
