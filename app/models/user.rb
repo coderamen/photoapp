@@ -8,10 +8,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 105 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
-  # has_secure_password
+  has_secure_password
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
-    user = User.create!(email: auth_hash["extra"]["raw_info"]["email"], username: "fbUser")
+    user = User.create!(email: auth_hash["extra"]["raw_info"]["email"]["username"])
     user.authentications << (authentication)
     return user
   end
