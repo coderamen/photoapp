@@ -12,7 +12,7 @@ class PicsController < ApplicationController
   end
 
   def show
-    place = Place.where(id: params[:id])
+    @place = Pic.find(params[:id])
   end
 
   def new

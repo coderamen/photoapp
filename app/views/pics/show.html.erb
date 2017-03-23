@@ -6,10 +6,18 @@
       <div class="panel-heading">
         <%= image_tag @pic.photo %>
       </div>
-      <div class="panel-body">
-        <h1><%= @pic.title %></h1>
-        <p><%= @pic.description %></p>
-        <p>Address: <%= place.address %></p>
+      <div class="panel-body" style="padding-bottom: 0; padding-top: 18px;">
+        <!-- <div class="row"> -->
+          <div class="col-sm-6">
+            <h1><%= @pic.title %></h1>
+            <p><%= @pic.description %></p>
+            <p><%= @place.city %></p>
+          </div>
+          <div class="col-sm-6" style="height: 205px;">
+            <p align="center" style="margin-top: 2px;"> <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=7&size=242x200&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+            id: "place-img" , alt: "#{@place.city} on the map"%></p>
+          </div>
+        <!-- </div> -->
       </div>
         <div class="panel-footer">
           <div class="row">

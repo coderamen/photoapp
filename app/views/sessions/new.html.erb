@@ -4,6 +4,8 @@
   <div class="col-sm-4 col-sm-offset-4">
     <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <div class="well" style="width: 320px; margin-top: 30px;">
+      <%= link_to "Login Facebook", "/auth/facebook" ,class: "btn btn-primary", style: "width: 100%; color: #fff;" %>
+      <br>
       <h4><%= f.label :email %></h4>
       <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
       <%= f.label :password %>

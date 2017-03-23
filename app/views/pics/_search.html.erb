@@ -1,12 +1,10 @@
 <div id="SearchForm">
   <%= form_tag pics_path, method: :get do %>
     <div class="input-group">
-      <%= text_field_tag :query, placeholder: "Look pics", class: "form-control" %>
+      <%= text_field_tag :query, params[:query], placeholder: "Look pics", class: "form-control" %>
       <span class="input-group-btn">
-        <!-- Additional styling should be in an external .css file. :) -->
-        <%= submit_tag "Search", class: "btn btn-inverse" %>
+        <%= submit_tag "Search", class: "btn btn-inverse", style: "color: #ccc; background: #000" %>
       </span>
     </div>
   <% end %>
 </div>
-
