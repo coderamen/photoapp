@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create'
   resources :users, except: [:new]
 
+  # facebook authentications
+  get '/auth/:provider/callback', to: 'sessions#create_from_omniauth'
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # facebook authentications
-  get '/auth/:provider/callback' => 'sessions#create_from_omniauth'
 end

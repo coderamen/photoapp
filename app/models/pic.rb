@@ -3,7 +3,8 @@ class Pic < ApplicationRecord
   pg_search_scope :search_title, :against => [:title]
   acts_as_votable
   belongs_to :user
-  validates :title, presence: true
+  validates :title, presence: true, length: { minimum: 3, maximum: 25 }
+  # validates_uniqueness_of :title
   validates :description, presence: true
   validates :user_id, presence: true
   mount_uploader :photo ,PhotoUploader
