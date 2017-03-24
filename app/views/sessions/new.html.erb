@@ -1,15 +1,19 @@
-<h1 align="center">Log in</h1>
+<h1 align="center" style="margin-top: 40px;">Log in</h1>
 
 <div class="container">
   <div class="col-sm-4 col-sm-offset-4">
     <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <div class="well" style="width: 320px; margin-top: 30px;">
       <%= link_to "Login Facebook", "/auth/facebook" ,class: "btn btn-primary", style: "width: 100%; color: #fff;" %>
+      <br><br>
+      <%= f.label :email, style: "margin-bottom:-5px;" %>
       <br>
-      <h4><%= f.label :email %></h4>
-      <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
-      <%= f.label :password %>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true,  style: "margin-bottom:-5px;" %>
+      <br>
+      <%= f.label :password, style: "margin-bottom:-5px;" %>
+      <br>
       <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+      <br>
       <%= f.submit "Log in", class: 'btn btn-primary', id: 'signup_btn' %>
     </div>
 </div>
