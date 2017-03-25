@@ -1,11 +1,11 @@
-  <%= form_for @pic do |f| %>
+  <%= form_for @pic, remote: true do |f| %>
   <%= f.label :title %>
   <br>
-  <%= f.text_field :title, class: "form-control" %>
+  <%= f.text_field :title, class: "form-control post_title" %>
   <br>
   <%= f.label :description %>
   <br>
-  <%= f.text_area :description, class: "form-control" %>
+  <%= f.text_area :description, class: "form-control post_content" %>
   <br>
   <%= f.label :photo %>
   <br>

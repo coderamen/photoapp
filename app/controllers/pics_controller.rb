@@ -3,12 +3,13 @@ class PicsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-      @pics = Pic.all
+    @pic = Pic.all
     if params[:query].present?
       @pics = Pic.search_full_text(params[:query]).order('created_at DESC')
     else
-      @pics = Pic.all.order('created_at ASC')
+      @pics = Pic.all.order('created_at DESC')
     end
+    @pic = Pic.new
   end
 
   def show
@@ -22,11 +23,16 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     @pic.user = User.first
-    if @pic.save
-      flash[:success] = "Pics was successfully posted"
-      redirect_to pic_path(@pic)
-    else
-      render 'new'
+    respond_to do |format|
+      if @pic.save
+        format.html { redirect_to root_path(@pic), notice: 'Pic was successfully posted'}
+        format.json { render :show, status: :created, location: @pic }
+        format.js
+        # redirect_to pic_path(@pic)
+      else
+        format.html { render :new }
+        format.json { render json: @pic.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -34,11 +40,15 @@ class PicsController < ApplicationController
   end
 
   def update
-    if @pic.update(pic_params)
-      flash[:success] = "Pics was successfully updated"
-      redirect_to @pic
-    else
-      render 'edit'
+    respond_to do |format|
+      if @pic.update(pic_params)
+        flash[:success] = "Pics was successfully updated"
+        format.html { redirect_to @pic, notice: "Pic was successfully updated"}
+        format.json { render :show, status: :created, location: @pic }
+        format.js
+      else
+        render 'edit'
+      end
     end
   end
 

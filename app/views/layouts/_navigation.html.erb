@@ -19,7 +19,10 @@
                 <li><%= link_to "Sign up", signup_path %></li>
               </ul>
             <% else %> <!-- if user is logged in... -->
-                <li><%= link_to "New Post", new_pic_path %></li>
+                <li><%= link_to new_pic_path, remote: true do %>
+                  <div>New</div>
+                  <% end %>
+                </li>
                 <li><%= link_to "All Post", pics_path %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">

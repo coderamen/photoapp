@@ -1,6 +1,6 @@
 
 
-<div id="pic_show" class="row">
+<div id="pic_<%= @pic.id %>" class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default" style="margin-top: 30px;">
       <div class="panel-heading">
@@ -22,7 +22,7 @@
         <div class="panel-footer">
           <div class="row">
             <div class="col-md-6">
-              <p style="margin: 10px 10px 10px 5px"><% @user %>by<%= @pic.user.email %></p>
+              <p style="margin: 10px 10px 10px 5px"><% @user %>by <%= @pic.user.email %></p>
             </div>
               <div class="col-md-6">
               <div class="btn-group pull-right">
@@ -30,7 +30,9 @@
                 <span class="glyphicon glyphicon-thumbs-up">
                   <%= @pic.get_upvotes.size %>
                   <% end %>
-                  <%= link_to "Edit", edit_pic_path , class: "btn btn-info btn-sm" %>
+                  <%= link_to edit_pic_path, remote: true, class: "btn btn-info btn-sm" do %>
+                  Edit
+                  <% end %>
                   <%= link_to "Delete", pic_path, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
                 </span>
                 <% if logged_in? && (current_user == @pic.user || current_user.admin?) %>
