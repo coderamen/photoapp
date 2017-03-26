@@ -8,6 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
+gem 'ruby'
 # password
 gem 'bcrypt'
 # Use SCSS for stylesheets
@@ -46,6 +47,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use PostgreSQL
 gem 'pg'
+# Push local changes
+gem 'cowsay'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
