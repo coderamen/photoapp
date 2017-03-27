@@ -16,15 +16,10 @@
       type: 'GET',
       data: getData,
       success: function (data, textStatus, jqXHR) {
-        $('SearchForm').append(data).fadeIn(2000); //this is the JS that gets triggered in response to a successful return. Data is what was returned.
+        $('#SearchForm').append(data).fadeIn(350); //this is the JS that gets triggered in response to a successful return. Data is what was returned.
       },
       error: function (jqXHR, textStatus, errorThrown) {
       }
     });
     $(document).submit();
   });
-
-  function test(json) {
-    console.log('Hello from JSON');
-    console.log(json);
-  }

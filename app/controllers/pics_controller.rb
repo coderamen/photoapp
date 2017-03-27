@@ -16,7 +16,7 @@ class PicsController < ApplicationController
   end
 
   def new
-    @pic = current_user.pics.build
+    @pic = current_user.pics.new
   end
 
   def create
@@ -55,8 +55,11 @@ class PicsController < ApplicationController
 
   def destroy
     @pic.destroy
-    flash[:danger] = "Pics was successfully deleted"
-    redirect_to pics_path
+    respond_to do |format|
+      format.html { redirect_to pics_path, notice: 'PIc was succesfully deleted' }
+      format.json { head :no_content }
+      format.js
+    end
   end
 
   def upvote
