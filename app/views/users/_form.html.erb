@@ -1,14 +1,19 @@
 
 
-<div class="container">
+<div class="container" style="margin-top: 30px;">
   <div class="col-sm-4 col-sm-offset-4">
+    <h1 align="center">Edit your account</h1>
     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <br>
     <%= f.label :username %>
     <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
+    <br>
     <%= f.label :email %>
     <%= f.email_field :email, rows: 10, class: "form-control", placeholder: "Enter email" %>
+    <br>
     <%= f.label :password %>
     <%= f.password_field :password, rows: 10, class: "form-control", placeholder: "Enter password" %>
+    <br>
     <%= f.submit(@user.new_record? ? "Sign Up" : "Update account", class: 'btn btn-primary', id: 'signup_btn' ) %>
   </div>
   </div>
