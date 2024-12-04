@@ -22,11 +22,13 @@ gem 'coffee-rails', '~> 4.2'
 gem 'geocoder'
 # facebook
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 9.0'
+# faraday
+gem 'faraday', '~> 1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # paginate
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # search
 gem 'pg_search'
