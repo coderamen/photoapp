@@ -15,8 +15,8 @@ pre-bundled cache of gems:
 
 1. On a machine with internet access, run `bundle package --all` to populate a
    `vendor/cache` directory containing the required `.gem` files.
-2. Copy that `vendor/cache` directory into this project (overwriting the empty
-   one if present).
+2. Copy that `vendor/cache` directory into this project (replacing the placeholder
+   `.keep` file that keeps the folder in git).
 3. Run `bin/offline-bundle` to install the gems locally from the cache. The
    command installs into `vendor/bundle` and avoids any network requests.
 
@@ -26,7 +26,7 @@ Older Nokogiri releases (for example 1.7.x) are incompatible with Ruby 3.0 and
 fail to compile native extensions with errors similar to `conflicting types for
 'canonicalize'`. The Gemfile pins Nokogiri to a Ruby-3-compatible release
 (`~> 1.15`). If you previously attempted to install dependencies with the older
-version, run `bundle clean --force` and then reinstall to pick up the updated
-version.
+version or have merge conflicts in `Gemfile.lock`, run `bundle clean --force`
+and then reinstall (or regenerate the lockfile) to pick up the updated version.
 
 # photoapp
