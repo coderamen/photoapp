@@ -13,4 +13,14 @@ This README documents the steps to get the application up and running.
 If your environment cannot reach rubygems.org, see `docs/offline-bundling.md`
 for a cache-first workflow and troubleshooting notes for Nokogiri on Ruby 3.
 
+If your environment does not allow outbound internet traffic, you can rely on a
+pre-bundled cache of gems:
+
+1. On a machine with internet access, run `bundle package --all` to populate a
+   `vendor/cache` directory containing the required `.gem` files.
+2. Copy that `vendor/cache` directory into this project (overwriting the empty
+   one if present).
+3. Run `bin/offline-bundle` to install the gems locally from the cache. The
+   command installs into `vendor/bundle` and avoids any network requests.
+
 # photoapp
