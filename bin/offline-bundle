@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_ROOT=$(cd "$(dirname "$0")/.." && pwd)
+cd "$APP_ROOT"
+
+CACHE_DIR="$APP_ROOT/vendor/cache"
+
+if [ ! -d "$CACHE_DIR" ] || ! ls "$CACHE_DIR"/*.gem >/dev/null 2>&1; then
+  echo "No vendor/cache gem files found. Place cached .gem files under vendor/cache before running." >&2
+  exit 1
+fi
+
+bundle config set --local path "vendor/bundle"
+bundle config set --local deployment 'true'
+bundle install --local --jobs 4
