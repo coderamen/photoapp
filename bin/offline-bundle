@@ -6,6 +6,16 @@ cd "$APP_ROOT"
 
 CACHE_DIR="$APP_ROOT/vendor/cache"
 
+mkdir -p "$CACHE_DIR"
+
+if ! ls "$CACHE_DIR"/*.gem >/dev/null 2>&1; then
+  cat >&2 <<'EOF'
+No vendor/cache gem files found.
+
+Populate vendor/cache with the required .gem files (for example by running
+`bundle package --all` on a machine with internet access) and re-run this
+script.
+EOF
 if [ ! -d "$CACHE_DIR" ] || ! ls "$CACHE_DIR"/*.gem >/dev/null 2>&1; then
   echo "No vendor/cache gem files found. Place cached .gem files under vendor/cache before running." >&2
   exit 1

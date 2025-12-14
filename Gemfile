@@ -49,6 +49,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use PostgreSQL
 gem 'pg'
+# Nokogiri 1.7.x is incompatible with Ruby 3.0; pin to a modern release
+# to avoid native extension build failures on newer Ruby versions.
+gem 'nokogiri', '~> 1.15'
 # Push local changes
 gem 'cowsay'
 # Use Redis adapter to run Action Cable in production

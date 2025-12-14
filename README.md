@@ -10,6 +10,9 @@ This README documents the steps to get the application up and running.
 
 ## Offline installation
 
+If your environment cannot reach rubygems.org, see `docs/offline-bundling.md`
+for a cache-first workflow and troubleshooting notes for Nokogiri on Ruby 3.
+
 If your environment does not allow outbound internet traffic, you can rely on a
 pre-bundled cache of gems:
 
