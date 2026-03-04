@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
+ruby '3.1.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 6.1'
 gem 'ruby'
 # password
 gem 'bcrypt'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -23,15 +23,15 @@ gem 'geocoder'
 # facebook
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 9.0'
-# faraday
-gem 'faraday', '~> 1.0'
+# faraday (pinned to v1 family for compatibility with existing dependencies)
+gem 'faraday', '~> 1.10'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # paginate
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # search
-gem 'pg_search'
+gem 'pg_search', '~> 2.3'
 # protect your users
 gem 'figaro'
 # image uploader
@@ -62,9 +62,11 @@ gem 'cowsay'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3', '~> 1.7'
 end
 
 group :production do

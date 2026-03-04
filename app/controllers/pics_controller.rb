@@ -5,7 +5,12 @@ class PicsController < ApplicationController
   def index
     @pics = Pic.all
     if params[:query].present?
-      @pics = Pic.search_full_text(params[:query]).order('created_at DESC')
+      if ActiveRecord::Base.connection.adapter_name.downcase.include?("postgres")
+        @pics = Pic.search_full_text(params[:query]).order("created_at DESC")
+      else
+        q = "%#{params[:query]}%"
+        @pics = Pic.where("title LIKE ? OR description LIKE ?", q, q).order("created_at DESC")
+      end
     else
       @pics = Pic.all.order('created_at DESC')
     end
