@@ -41,6 +41,13 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.configure do |env|
+    # In this environment, project tmp/ may be root-owned from prior runs.
+    # Use a guaranteed writable cache location so asset compilation can proceed.
+    cache_root = Pathname.new("/tmp/photoapp/cache/assets")
+    cache_root.mkpath
+    env.cache = Sprockets::Cache::FileStore.new(cache_root.to_s)
+  end
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
